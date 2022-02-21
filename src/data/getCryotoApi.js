@@ -12,6 +12,7 @@ const getCryptoList = async () => {
 		price: data.current_price,
 		symbol: data.symbol,
 		lastUpdate: data.last_updated,
+		volume: data.total_volume,
 	}));
 	return list;
 };

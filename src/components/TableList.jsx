@@ -1,6 +1,7 @@
 import useFetch from '../hooks/useFetch';
+import { useState } from 'react';
 
-const TableList = () => {
+const TableList = ({ crypto }) => {
 	const { data: list, loading } = useFetch();
 	return (
 		<>
@@ -9,25 +10,34 @@ const TableList = () => {
 				<thead>
 					<tr>
 						<th># Rank</th>
+						<th className='logo'>icon</th>
 						<th>Name</th>
 						<th>Symbol</th>
 						<th>Price</th>
 						<th>LastUpdate</th>
+						<th>Volumen</th>
 					</tr>
 				</thead>
 				<tbody>
-					{list.map(({ id, rank, name, icon, price, symbol, lastUpdate }) => (
-						<tr key={id} className='prioirty'>
-							<td className='rank'>{rank}</td>
-							<td className='logo'>
-								<img src={icon} alt='logo' width='30px' />
-								<p>{name}</p>
-							</td>
-							<td className='symbol'>{symbol}</td>
-							<td>${price.toFixed(2)}</td>
-							<td>{lastUpdate}</td>
-						</tr>
-					))}
+					{list
+						.filter(({ name }) => {
+							return name.toLowerCase().includes(crypto.toLowerCase());
+						})
+						.map(({ id, rank, name, icon, price, symbol, lastUpdate, volume }) => (
+							<tr key={id} id={id} className='prioirty'>
+								<td className='smallTd'>{rank}</td>
+								<td className='logo'>
+									<img src={icon} alt='logo' width='40px' height='40px' />
+								</td>
+								<td className='nameList'>
+									<p>{name}</p>
+								</td>
+								<td className='smallTd'>{symbol}</td>
+								<td className='smallTd'>${price.toFixed(2)}</td>
+								<td className='update'>{lastUpdate}</td>
+								<td>{volume}</td>
+							</tr>
+						))}
 				</tbody>
 			</table>
 		</>

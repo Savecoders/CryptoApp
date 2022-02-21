@@ -18,23 +18,55 @@ table {
 	width: 100%;
 }
 
+.field {
+	border: 0.2rem solid #161f2b;
+	border-radius: 0.2rem;
+	background-color: #171e27;
+	color: #bec8db;
+	height: 4rem;
+	font-size: 1.5rem;
+	width: 80vw;
+	outline: 0;
+	padding: 0 2rem 0 2rem;
+	margin: 0.5rem 0 2.5rem 0;
+}
+
+.field::placeholder {
+	color: #bec8db;
+}
+
 table th,
 table td {
-	padding: 15px 20px;
-	text-align: left;
-	font-size: 14px;
+	padding: 1rem 1.2rem;
+	font-size: 1rem;
+}
+.logo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: auto;
+}
+.nameList {
+	padding: auto;
+	width: 15rem;
+}
+.smallTd {
+	width: 10rem;
+}
+.update {
+	width: 20rem;
 }
 table tr {
 	background-color: #171e27;
 }
 table tr:hover {
-	background-color: #111d32;
+	background-color: #12171f;
 }
 
 table tr th:first-of-type,
 table tr td:first-of-type {
-	border-top-left-radius: 5px;
-	border-bottom-left-radius: 5px;
+	border-top-left-radius: 0.2rem;
+	border-bottom-left-radius: 0.2rem;
 }
 
 table tr:nth-child(even) td:first-of-type {
